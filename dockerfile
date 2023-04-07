@@ -2,7 +2,7 @@
 FROM alpine/git AS git-checkout
 WORKDIR /app
 ARG PARAM1=default_value
-RUN git clone --branch ${PARAM2} "${PARAM1}" .
+RUN git clone "${PARAM1}" .
 
 # Stage 2: Build and test with Maven
 FROM maven:3.8.3-jdk-11-slim AS build
