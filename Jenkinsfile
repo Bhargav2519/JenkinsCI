@@ -13,7 +13,7 @@ pipeline {
                     if (params.lang == 'java') {
                     echo "${params.lang}"
                     echo "${params.input}"
-                    sh "docker build --network=host -t mavenpipeline --build-arg PARAM1=${GitHub_URL} --build-arg PARAM2=${Branch} dockerfilejava"
+                    sh "docker build --network=host -t mavenpipeline --build-arg PARAM1=${GitHub_URL} --build-arg PARAM2=${Branch} ."
                     }
                     else if (params.lang == 'python') {
                       echo "${params.lang}"
