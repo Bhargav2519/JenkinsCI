@@ -7,7 +7,7 @@ RUN apk add --no-cache git
 WORKDIR /app
 
 # Clone the Git repository
-RUN git clone https://github.com/dotnet-architecture/eShopOnWeb.git
+RUN git clone --branch ${PARAM2} --single-branch "${PARAM1}" .
 
 # Set the working directory to the cloned repository
 RUN mkdir /opt/dotnet1
