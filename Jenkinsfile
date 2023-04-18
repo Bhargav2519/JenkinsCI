@@ -22,7 +22,7 @@ pipeline {
                     }
                     else if (params.lang == 'dotnet') {
                       echo "${params.lang}"
-                      sh "docker build -t dotnet ."
+                      sh "docker build -t dotnet -f dockerfiledotnet ."
                     }
                      else if (params.lang == 'nodejs') {
                       echo "${params.lang}"
