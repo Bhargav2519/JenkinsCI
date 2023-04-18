@@ -22,6 +22,7 @@ pipeline {
                     }
                     else if (params.lang == 'dotnet') {
                       echo "${params.lang}"
+                      sh "docker build --network=host -t dotnet --build-arg PARAM1=${GitHub_URL} --build-arg PARAM2=${Branch} -f dockerfiledotnet ."
                     }
                      else if (params.lang == 'nodejs') {
                       echo "${params.lang}"
