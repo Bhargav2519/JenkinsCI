@@ -13,7 +13,7 @@ RUN git clone --branch ${PARAM2} --single-branch "${PARAM1}" .
 
 # Set the working directory to the cloned repository
 RUN mkdir /opt/dotnet1
-RUN mv /app/*.sln /opt/dotnet1
+RUN mv /app/eShopOnWeb.* /opt/dotnet1
 WORKDIR /opt/dotnet1/eShopOnWeb/
 
 
