@@ -1,4 +1,5 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build-env
 
 # Install Git
 RUN apk add --no-cache git
@@ -7,13 +8,11 @@ RUN apk add --no-cache git
 WORKDIR /app
 
 # Clone the Git repository
-ARG PARAM1=default_value
-ARG PARAM2=default_value
-RUN git clone --branch ${PARAM2} --single-branch "${PARAM1}" .
+RUN git clone https://github.com/dotnet-architecture/eShopOnWeb.git
 
 # Set the working directory to the cloned repository
 RUN mkdir /opt/dotnet1
-RUN mv /app/eShopOnWeb.* /opt/dotnet1
+RUN mv /app/eShopOnWeb* /opt/dotnet1
 WORKDIR /opt/dotnet1/eShopOnWeb/
 
 
