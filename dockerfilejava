@@ -3,13 +3,12 @@ FROM alpine/git AS git-checkout
 WORKDIR /app
 ARG PARAM1=default_value
 ARG PARAM2=default_value
-RUN git clone https://github.com/Bhargav2519/maven-web-application.git
+RUN git clone https://github.com/Bhargav2519/maven-web-application.git .
 
 # Stage 2: Build and test with Maven
 FROM maven:3.8.3-jdk-11-slim AS build
 WORKDIR /app
 COPY --from=git-checkout /app .
-WORKDIR /app/maven-web-application
 RUN mvn clean package
 
 # Stage 3: Run tests
